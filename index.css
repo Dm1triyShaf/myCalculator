@@ -12,12 +12,27 @@
 
 }
 
+.calc_screen {
+    height: 125px;
+    padding: 10px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.calc_screen p {
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+}
+
 .buttons {
     display: grid;
     grid-template-areas:
     "ac plus-minus percebt division"
     "seven eigth nine myltiply"
-    "four five six minus bg-orange"
+    "four five six minus"
     "one two three plus"
     "zero zero dot equal";
     grid-gap: 7px;

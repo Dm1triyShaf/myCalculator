@@ -1,39 +1,32 @@
+let a = ''; // first number
+let b = ''; // second number
+let sign = ''; // знак операции
+let finish = false;
 
-var operationsButtons = document.getElementById('operations-button')
-var input1 = document.getElementById('number1')
-var input2 = document.getElementById('number2')
+const digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+const action = ['-', '+', 'X', '/'];
 
-function Operation(operationCod) {
+// экран 
+const out = document.querySelector('.calc_screen p');
 
-    var number1 = Number(input1.value)
-    var number2 = Number(input2.value)
-
-    if (operationCod === "+") {
-        var result = number1 + number2
-    } else if (operationCod === "-") {
-        var result = number1 - number2
-    } else if (operationCod === "*") {
-        var result = number1 * number2
-    } else if (operationCod === "/") {
-        var result = number1 / number2
-    } else {
-        window.alert("error")
-    }
-    window.alert(result)
+function clearAll() {
+    a = ''; //finish number and result
+    b = ''; //second number
+    sign = ''; //знак
+    finish = false;
+    out.textContent = 0;
 }
 
-function onOperationsClick(eventObject) {
-    var clikedElement = eventObject.currentTarget
-    var OperationCliked = clikedElement.innerHTML
-    Operation(OperationCliked)
-}
+document.querySelector('.ac').onclick = clearAll;
 
-function addCommonEventListener(i) {
-}
+document.querySelector('.buttons').onclick = (event) => {
+    //нажата не кнопка 
+    if(!event.target.classList.contains('btn')) return;
+    //нажата кнопка clearAll ac
+    if(event.target.classList.contains('ac')) return;
 
-var operationsButtons = [Plus, Minus, Multiply, Devide]
+    out.textContent = '';
 
-for (var i = 0; i < operationsButtons.length; i++) {
-    var button = operationsButtons[i]
-    button.addEventListener('click', onOperationsClick)
+    //получаю нажатую кнопку
+    const key = event.target.textContent
 }
